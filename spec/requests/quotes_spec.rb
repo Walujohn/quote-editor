@@ -14,6 +14,15 @@ RSpec.describe "Quotes", type: :request do
         post quotes_path, params: { quote: { name: "First Quote" } }
       }.to change(Quote, :count).by(1)
     end
+
+    it "responds with turbo stream" do
+      post quotes_path,
+          params: { quote: { name: "Turbo Quote" } },
+          headers: { "Accept" => "text/vnd.turbo-stream.html" }
+
+      expect(response.media_type)
+        .to eq("text/vnd.turbo-stream.html")
+    end
   end
 
   describe "GET /quotes/:id" do

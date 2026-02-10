@@ -11,4 +11,10 @@ RSpec.describe Quote, type: :model do
     quote = build(:quote, name: nil)
     expect(quote).not_to be_valid
   end
+
+  it "has a unique name" do
+    create(:quote, name: "Unique rspec quote")
+    quote = build(:quote, name: "Unique rspec quote")
+    expect(quote).not_to be_valid
+  end
 end
