@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Quote, type: :model do
   it "is valid with a name" do
-    quote = Quote.new(name: "A quote")
+    quote = build(:quote, name: "A quote")
     expect(quote).to be_valid
   end
 
@@ -13,8 +13,16 @@ RSpec.describe Quote, type: :model do
   end
 
   it "has a unique name" do
-    create(:quote, name: "Unique rspec quote")
-    quote = build(:quote, name: "Unique rspec quote")
+    company = create(:company)
+
+    create(:quote, name: "Unique rspec quote", company: company)
+    quote = build(:quote, name: "Unique rspec quote", company: company)
+
+    expect(quote).not_to be_valid
+  end
+
+  it "requires a company" do
+    quote = build(:quote, company: nil)
     expect(quote).not_to be_valid
   end
 end

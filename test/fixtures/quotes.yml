@@ -1,8 +1,11 @@
 first:
+  company_id: <%= ActiveRecord::FixtureSet.identify(:kpmg) %>
   name: First quote
 
 second:
+  company_id: <%= ActiveRecord::FixtureSet.identify(:kpmg) %>
   name: Second quote
 
 third:
+  company_id: <%= ActiveRecord::FixtureSet.identify(:kpmg) %>
   name: Third quote
