@@ -7,7 +7,7 @@ class QuotesEmptyStateTest < ApplicationSystemTestCase
   end
 
   test "shows empty state when there are no quotes" do
-    Quote.where(company: @user.company).delete_all
+    Quote.where(company: @user.company).destroy_all
 
     visit quotes_path
 
@@ -15,7 +15,7 @@ class QuotesEmptyStateTest < ApplicationSystemTestCase
   end
 
   test "hides empty state when there are quotes" do
-    Quote.where(company: @user.company).delete_all
+    Quote.where(company: @user.company).destroy_all
     Quote.create!(name: "Capybara quote", company: @user.company)
 
     visit quotes_path
