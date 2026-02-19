@@ -1,24 +1,46 @@
-# README
+# Quote Editor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Small Rails app from Hotrails.dev tutorial for creating and managing quotes with dated line items.
 
-Things you may want to cover:
+## Stack
 
-* Ruby version
+- Rails 8.1
+- PostgreSQL
+- Hotwire (Turbo + Stimulus)
+- Devise authentication
+- RSpec + Factory Bot
 
-* System dependencies
+## What it does
 
-* Configuration
+- Users sign in and work within their company scope.
+- Create, edit, and delete quotes.
+- Add quote dates, then add line items (name, quantity, unit price).
+- Automatically computes quote totals.
+- Uses Turbo Frames/Streams for fast in-place updates.
 
-* Database creation
+## Quick start
 
-* Database initialization
+Prerequisites: Ruby, PostgreSQL, Node.js, Yarn.
 
-* How to run the test suite
+```bash
+bin/setup
+bin/dev
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Open http://localhost:3000.
 
-* Deployment instructions
+## Database
 
-* ...
+```bash
+bin/rails db:prepare
+bin/rails db:seed
+```
+
+`db:seed` loads data from fixtures.
+
+## Tests
+
+```bash
+bin/rspec
+bin/rails test:all
+```
