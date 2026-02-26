@@ -2,7 +2,8 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: %i[ show edit update destroy ]
 
   def index
-    @quotes = current_company.quotes.ordered
+    # @quotes = current_company.quotes.ordered
+    @quotes = Quotes::VisibleTo.new(user: current_user).call
   end
 
   def show

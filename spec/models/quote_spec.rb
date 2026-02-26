@@ -35,4 +35,14 @@ RSpec.describe Quote, type: :model do
 
     expect(quote.total_price).to eq(80)
   end
+
+  it "orders quotes by most recently created first" do
+    company = create(:company)
+
+    older_quote = create(:quote, company: company, created_at: 1.day.ago)
+    newer_quote = create(:quote, company: company, created_at: Time.current)
+
+    expect(company.quotes.ordered.to_a)
+      .to eq([ newer_quote, older_quote ])
+  end
 end
