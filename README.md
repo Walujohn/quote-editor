@@ -41,6 +41,7 @@ bin/rails db:seed
 ## Tests
 
 ```bash
+npm run test:js
 bin/rspec
 bin/rails test:all
 ```

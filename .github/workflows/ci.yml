@@ -23,6 +23,25 @@ jobs:
       
       - name: Scan for known security vulnerabilities in gems used
         run: bin/bundler-audit
+
+  js-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install JavaScript dependencies
+        run: npm ci
+
+      - name: Run JavaScript unit tests
+        run: npm run test:js
       
   lint:
     runs-on: ubuntu-latest

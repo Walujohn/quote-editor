@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  namespace :api do
+    namespace :v1 do
+      resources :quotes, only: [ :index ]
+    end
+  end
+
+  get "react/quotes" => "pages#react_quotes"
+
   resources :quotes do
     resources :line_item_dates, except: [ :index, :show ] do
       resources :line_items, except: [ :index, :show ]

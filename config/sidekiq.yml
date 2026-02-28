@@ -1,0 +1,12 @@
+# config/sidekiq.yml
+:concurrency: 5
+
+:queues:
+  - [maintenance, 1]
+  - [default, 5]
+
+:schedule:
+  enqueue_cleanup_empty_quotes_daily:
+    cron: "0 2 * * *" # daily 2:00am
+    class: "Quotes::EnqueueCleanupEmptyQuotesJob"
+    queue: maintenance
