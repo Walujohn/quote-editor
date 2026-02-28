@@ -19,7 +19,7 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 # Form builder with lots of features and great defaults [https://github.com/heartcombo/simple_form]
-gem "simple_form", "~> 5.1.0"
+gem "simple_form", "~> 5.4.1"
 # Sidekiq for background job processing [https://github.com/mperham/sidekiq]
 gem "sidekiq"
 # Schedule background jobs with cron syntax [https://github.com/ondrejbartas/sidekiq-cron]
