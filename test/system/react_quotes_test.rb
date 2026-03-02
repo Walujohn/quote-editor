@@ -6,7 +6,9 @@ class ReactQuotesTest < ApplicationSystemTestCase
   end
 
   test "shows an empty state when there are no quotes" do
-    visit react_quotes_path
+    Quote.destroy_all
+
+    visit "/react/quotes"
 
     assert_text "No quotes found."
   end
