@@ -1,7 +1,7 @@
 <header class="navbar">
   <% if user_signed_in? %>
     <div class="navbar__brand">
-      <%= current_company.name %>
+      <%= tag.span(current_company.name, lang: I18n.locale) %>
     </div>
     <div class="navbar__name">
       <%= current_user.name %>
